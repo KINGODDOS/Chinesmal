@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="appTitle">Aviator Signal Access</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="langToggleButton" class="button lang-toggle">বাংলা</button>
+    <div id="tempMessageSignal"></div>
+
+    <!-- Login View -->
+    <div id="loginView" class="view-section active">
+        <div class="container">
+            <h1 data-lang-key="loginTitle">Aviator Signal Access</h1>
+            <p data-lang-key="loginSubtitle">Enter your User Key to access the signals.</p>
+            <div class="input-group">
+                <label for="userKeyInput" data-lang-key="userKeyLabel">User Key:</label>
+                <input type="password" id="userKeyInput" data-lang-key-placeholder="userKeyPlaceholder" placeholder="Enter your key">
+            </div>
+            <button id="loginButton" class="button primary" data-lang-key="loginButtonText">Login</button>
+            <p id="errorMessage"></p>
+        </div>
+    </div>
+
+    <!-- Signal View (Logged In State) -->
+    <div id="signalView" class="view-section">
+        <div class="user-info-panel">
+            <h3 data-lang-key="userInfoTitle">Your Access Details:</h3>
+            <p><span data-lang-key="keyLabel">Key</span>: <span id="userInfoKey" class="data-value"></span></p>
+            <p><span data-lang-key="expiresOnLabel">Expires on</span>: <span id="userInfoExpiryDate" class="data-value"></span></p>
+            <p><span data-lang-key="timeLeftLabel">Time Left</span>: <span id="expiryCountdownDisplay"></span></p>
+        </div>
+
+        <div class="aviator-panel">
+            <h2>AVIATOR</h2>
+            <div class="signal-display">
+                <p data-lang-key="currentSignalLabel">Current Signal:</p>
+                <span id="aviatorSignalX">--- x</span>
+            </div>
+            <button id="nextRoundButton" class="button secondary" data-lang-key="nextRoundButtonText">Next Round</button>
+            <p id="waitMessage"></p>
+            <button id="logoutButton" class="button danger" style="margin-top: 20px;" data-lang-key="logoutButtonText">Logout</button>
+        </div>
+
+        <div class="disclaimer-panel">
+            <div class="disclaimer-title" data-lang-key="disclaimerTitle">Important Note:</div>
+            <div class="disclaimer-item" data-lang-key="disclaimerText1">Always place small bets.</div>
+            <div class="disclaimer-item" data-lang-key="disclaimerText2">With 100% signals, do not bet large amounts as it may get your game ID banned.</div>
+            <div class="disclaimer-item" data-lang-key="disclaimerText3">To stay safe, bet small amounts like 50, 100, 500, 800.</div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
